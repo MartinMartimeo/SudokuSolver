@@ -25,6 +25,12 @@ from extensions.linebreak import LineBreak
 md.register_extension(LineBreak)
 
 with app.app_context():
+
+    # noinspection PyUnresolvedReferences
+    from processors import *
+    # noinspection PyUnresolvedReferences
+    from handlers import *
+
     app.md = md
 
 # Get extra files

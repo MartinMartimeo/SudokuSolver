@@ -9,6 +9,9 @@ $(document).on('change', 'input[type=number]', function() {
     // Add error Classes
     $(this).parent().addClass("error");
 
+    $(this).parent().removeClass("success");
+    $(this).parent().removeClass("notice");
+
     if(!$(this).val()) {
         $(this).parent().removeClass("error");
         return;
@@ -57,4 +60,63 @@ $('[data-alert]').tipsy({
     title: function() {
         return $(this).attr("data-alert");
     }
+});
+
+// Buttons
+$(".btn-reset").on("click", function () {
+    var sudoku = $("#sudoku");
+    sudoku.find("input").removeClass("success").removeClass("notice").removeClass("error").removeAttr("data-alert");
+});
+
+// Solve Button
+$("#btn-solve").on("click", function () {
+
+    var sudoku = $("#sudoku");
+
+    $("#btn-solve").val("Solving").attr("disabled", "disable");
+    $.getJSON('/solve', sudoku.find("input[type=number]"), function(data) {
+        if (data.nsolvable) {
+            alert("This Sudoku is not solvable!");
+        } else {
+            var result = data.result;
+
+            $.each(result, function (coords, number) {
+                var input = sudoku.find("input[name=x" + coords + "]");
+                var num = input.val();
+                if (num == number) {
+                    input.parent().addClass("success");
+                } else if (num) {
+                    input.parent().addClass("notice");
+                    input.val(number);
+                } else {
+                    input.val(number);
+                }
+            });
+
+        }
+    }).always(function () {
+            $("#btn-solve").val("Solve").removeAttr("disabled");
+    });
+    return false;
+
+
+});
+// Solve Button
+$("#btn-check").on("click", function () {
+
+    var sudoku = $("#sudoku");
+
+    $("#btn-check").val("Checking").attr("disabled", "disable");
+    $.getJSON('/solve', sudoku.find("input[type=number]"), function(data) {
+        if (data.nsolvable) {
+            alert("This Sudoku is not solvable!");
+        } else {
+            alert("This Sudoku is solvable!");
+        }
+    }).always(function () {
+            $("#btn-check").val("Check").removeAttr("disabled");
+        });
+    return false;
+
+
 });

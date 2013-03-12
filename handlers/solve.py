@@ -6,7 +6,7 @@
 import logging
 import os
 from subprocess import Popen, PIPE
-from flask import request
+from flask import request, current_app, jsonify
 
 __author__ = 'Severin Orth <severin.orth@nicta.com.au>'
 __date__ = '12.03.13 - 17:02'
@@ -51,7 +51,7 @@ def run_yices(input):
     """
 
     # Open Process
-    p = Popen(["yices"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    p = Popen(["/opt/yices-2.1.0/bin/yices"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 
     # Write Input
     p.stdin.write(input)
@@ -100,8 +100,18 @@ def yices_solve(asserts):
     return rtn
 
 
+@current_app.route('/solve')
+def solve():
+    asserts = build_asserts()
+    rtn = yices_solve(asserts)
+    if rtn:
+        return jsonify({"result": rtn, "solved": "true"})
+    else:
+        return jsonify({"nsolvable": "true"})
+
+
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(levelname)s %(message)s')
 
-    print "%s" % yices_solve(["(assert (= x11 2))", "(assert (= x33 3))"])
+    print "%s" % yices_solve(["(assert (= x11 2))", "(assert (= x33 2))"])

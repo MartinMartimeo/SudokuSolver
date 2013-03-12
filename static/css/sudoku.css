@@ -11,7 +11,7 @@
     border: 0;
 }
 
-#sudoku input[name=num] {
+#sudoku input[type=number] {
     width: 25px;
     height: 25px;
 
@@ -26,4 +26,8 @@
 
 #sudoku td[data-y="3"], #sudoku td[data-y="6"] {
     padding-bottom: 3px;
+}
+
+.btn-group-vertical .btn {
+    min-width: 80px;
 }

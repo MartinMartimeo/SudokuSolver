@@ -1,0 +1,11 @@
+
+
+# IDE
+.idea/
+
+# Python
+*.pyc
+*.pyo
+
+# System
+nohup.out

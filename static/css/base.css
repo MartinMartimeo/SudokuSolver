@@ -1,0 +1,91 @@
+
+
+.container-centering {
+    text-align: center;
+    margin: auto;
+}
+
+.hero-unit {
+    padding: 20px;
+}
+
+.modal {
+
+    width: auto;
+
+    left: 10%;
+    right: 10%;
+
+    margin-left: 0px;
+
+    min-width: 560px;
+}
+
+.container-body {
+    margin-top: 60px;
+}
+
+.btn-toolbar[for=saml-editor] {
+    margin-bottom: 0;
+
+    background-color: #CCCCCC;
+
+    padding-left: 17px;
+}
+
+.tt {
+    font-family: courier,monospace;
+    font-size: 0.8em;
+}
+
+[tipsy] {
+    cursor: help;
+}
+
+[tipsy][href] {
+    cursor: pointer;
+}
+
+.tipsy a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+}
+
+i.abk-tipp {
+    text-decoration: underline;
+
+    color: inherit;
+    font-style: inherit;
+
+    text-decoration-style: dashed;
+    text-decoration-color: grey;
+
+    -moz-text-decoration-style: dashed;
+    -moz-text-decoration-color: grey;
+}
+
+a.abk-tipp {
+    text-decoration: underline;
+
+    color: inherit;
+
+    text-decoration-style: dashed;
+    text-decoration-color: grey;
+
+    -moz-text-decoration-style: dashed;
+    -moz-text-decoration-color: grey;
+}
+
+.modal-body {
+    max-height: 450px;
+}
+
+.navbar-develop .brand {
+    background-color: #e9322d !important;
+    color: #000000 !important;
+}
+
+.alert p {
+    margin: 0;
+}

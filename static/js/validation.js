@@ -65,7 +65,7 @@ $('[data-alert]').tipsy({
 // Buttons
 $(".btn-reset").on("click", function () {
     var sudoku = $("#sudoku");
-    sudoku.find("input").removeClass("success").removeClass("notice").removeClass("error").removeAttr("data-alert");
+    sudoku.find("input").parent().removeClass("success").removeClass("notice").removeClass("error").removeAttr("data-alert");
 });
 
 // Solve Button

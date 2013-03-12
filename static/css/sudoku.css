@@ -1,0 +1,29 @@
+
+#sudoku {
+    border-collapse: collapse;
+}
+
+#sudoku td {
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+}
+
+#sudoku input[name=num] {
+    width: 25px;
+    height: 25px;
+
+    margin: 1px;
+
+    text-align: center;
+}
+
+#sudoku td[data-x="3"], #sudoku td[data-x="6"] {
+    padding-right: 3px;
+}
+
+#sudoku td[data-y="3"], #sudoku td[data-y="6"] {
+    padding-bottom: 3px;
+}

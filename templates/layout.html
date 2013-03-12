@@ -6,6 +6,7 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
     <link href="{{ url_for('static', filename='css/tipsy.css') }}" rel="stylesheet" media="screen">
     <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='css/sudoku.css') }}" rel="stylesheet" media="screen">
 
     <script src="{{ url_for('static', filename='js/jquery-latest.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery-tipsy.js') }}"></script>
@@ -61,6 +62,8 @@
         <footer class="container-centering">
             <p>{{ "&copy; Severin Orth 2013" | markdown }}</p>
         </footer>
+
+        <script src="/static/js/validation.js"></script>
 
     </div><!--/.fluid-container-->
 </body>

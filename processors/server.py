@@ -17,7 +17,7 @@ def inject_server():
     isdevelop = False
 
     server_name = urlparse(request.host_url).netloc
-    if server_name.find("locahost") > -1:
+    if server_name.find("localhost") > -1:
         isdevelop = True
     if server_name.find("127.0.0.1") > -1:
         isdevelop = True
